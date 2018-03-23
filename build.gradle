@@ -3,44 +3,29 @@ System.setProperty("file.encoding", "UTF-8")
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url "${System.properties['user.home']}/.m2/repository/"
-        }
 
         maven {
             url "http://sandec.bintray.com/repo"
         }
 
-        maven {
-            url "http://mix-software.com:8081/nexus/content/repositories/jpro-snapshots"
-        }
-
-        maven {
-            url "http://mix-software.com:8081/nexus/content/repositories/jpro"
-        }
     }
 
     dependencies {
         classpath 'org.javafxports:jfxmobile-plugin:1.0.8'
-        classpath 'com.jprotechnologies.jpro:jpro-plugin-gradle:0.1.7-SNAPSHOT'
-        classpath 'SANDEC:simplefx-plugin-gradle:2.2.0'
+        classpath 'com.sandec.jpro:jpro-plugin-gradle:2018.1.0'
+        classpath 'SANDEC:simplefx-plugin-gradle:3.0.6'
     }
 }
 
 repositories {
     jcenter()
     maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
-    }
-    maven {
         url "http://sandec.bintray.com/repo"
-    }
-    maven {
-        url "https://oss.sonatype.org/content/groups/public"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'de.sandec.simplefx'
+apply plugin: 'com.sandec.jpro'
 
 mainClassName = 'hello.world.Main'
